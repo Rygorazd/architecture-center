@@ -47,17 +47,17 @@ The following table shows the potential cumulative downtime for various SLA leve
 
 ### Identify critical system flows
 
-Understanding critical system flows is vital to assessing overall operational effectiveness and should be used to inform a health model for the application. It can also tell if areas of the application are over or underutilized and should be adjusted to better meet business needs and cost goals.
+Understanding critical system flows is vital to assessing overall operational effectiveness and should be used to inform a health model for the application. It can also tell if areas of the application are over- or underutilized and should be adjusted to better meet business needs and cost goals.
 
 Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs.
 
 ### Identify less critical components
 
-Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.
+Some less critical components or paths through the application may have lower expectations around availability, recovery and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.
 
 ## Recovery metrics
 
-Derive these values by conducting a risk assessment, and make sure you understand the cost and risk of downtime and data loss. These are nonfunctional requirements of a system and should be dictated by business requirements.
+Derive these values by conducting a risk assessment and make sure you understand the cost and risk of downtime and data loss. These are nonfunctional requirements of a system and should be dictated by business requirements.
 
 - **Recovery time objective (RTO)** is the maximum acceptable time an application is unavailable after an incident.
 - **Recovery point objective (RPO)** is the maximum duration of data loss that's acceptable during a disaster.
@@ -77,7 +77,7 @@ In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/lega
 
 The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of *availability* for each service. That aspect of the SLA acts as an enforcement policy.
 
-:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
+![logo](../../_images/github.png) The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
 
 ### Composite SLAs
 
@@ -116,4 +116,4 @@ The expected chance that the application fails in all regions at the same time i
 - The combined SLA for two regions = (1 − (1 − 0.9995) \^ 2) = 99.999975%
 - The combined SLA for four regions =  (1 − (1 − 0.9995) \^ 4)  = 99.999999%
 
-The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring).
+The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring).
