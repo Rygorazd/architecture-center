@@ -12,7 +12,7 @@ ms.custom:
 
 # Key and secret management considerations in Azure
 
-Encryption is an essential tool for security because it restricts access. However, it's equally important to protect the secrets (keys, certificates) key that provide access to the data. 
+Encryption is an essential tool for security because it restricts access. However, it's equally important to protect the secrets (keys, certificates) that provide access to the data. 
 
 ## Key points
 - Use identity-based access control instead of cryptographic keys.
@@ -27,14 +27,14 @@ There are many ways to provide access control over storage resources available, 
 ***
 Protecting cryptographic keys can often get overlooked or implemented poorly. Managing keys securely with application code is especially difficult and can lead to mistakes such as accidentally publishing sensitive access keys to public code repositories.
 
-Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory(Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies, and others.
+Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory (Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies and others.
 
 > ![Task](../../_images/i-best-practices.svg) 
 > Grant access based on the principle of least privilege. Risk of giving more privileges than necessary can lead to data compromise.
 
 Suppose you need to store sensitive data in Azure Blob Storage. You can use Azure AD and RBAC to authenticate a service principal that has the required permissions to access the storage. For more information about the feature, see [Authorize access to blobs and queues using Azure Active Directory](/azure/storage/common/storage-auth-aad).
 
-> [!TIP]
+> ![TIP](../../_images/i-best-practices.svg)
 > Using SAS tokens is a common way to control access. These SAS tokens created by using the service owner's Azure AD credentials. The tokens are created per resource and you can use Azure RBAC to restrict access. SAS tokens have a time limit, which controls the window of exposure. 
 > Here are the resources for the preceding example:
 >
@@ -46,15 +46,15 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 
 ## Key storage
 
-Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
+Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit the access.
 
-Make sure that no keys and secrets for any environment types (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
+Make sure that no keys and secrets for any environment type (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
-Have processes that periodically detect exposed keys in your application code. An option is Credential Scanner. For information about configuring task, see [Credential Scanner task](/azure/security/develop/security-code-analysis-customize#credential-scanner-task).
+Have processes that periodically detect exposed keys in your application code. One of the options is Credential Scanner. For information about configuring the task, see [Credential Scanner task](/azure/security/develop/security-code-analysis-customize#credential-scanner-task).
 
 **Do you have an access model for key vaults to grant access to keys and secrets?**
 ***
-To secure access to your key vaults, control permissions to keys and secrets an access model. For more information, see [Access model overview](/azure/key-vault/general/secure-your-key-vault#access-model-overview).
+To secure access to your key vaults, control permissions to keys and secrets in an access model. For more information, see [Access model overview](/azure/key-vault/general/secure-your-key-vault#access-model-overview).
 
 
 ## Operational considerations
@@ -66,7 +66,7 @@ Central SecOps team provides guidance on how keys and secrets are managed (gover
 
 **What types of keys and secrets are used and how are those generated?**
 ***
-There are various approaches that the workload team uses. Options include Microsoft-managed Keys, Customer-managed Keys, Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding these requirements to determine the most suitable type of keys. 
+There are various approaches that the workload team uses. Options include Microsoft-managed Keys, Customer-managed Keys or Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding of these requirements to determine the most suitable type of keys. 
 
 **Are keys and secrets rotated frequently?**
 ***
