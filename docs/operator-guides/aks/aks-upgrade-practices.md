@@ -140,7 +140,7 @@ You can upgrade the control plane first, and then upgrade the individual node po
       --kubernetes-version <KubernetesVersion>
    ```
 
-1. Run [az aks nodepool upgrade](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_upgrade) to upgrade node pools to the target version:
+1. Run [az aks nodepool upgrade](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_upgrade) command to upgrade node pools to the target version:
    
    ```azurecli
    az aks nodepool upgrade \
@@ -168,8 +168,8 @@ The following table describes characteristics of various AKS upgrade and patchin
 - It's possible that an OS security patch applied as part of a node image upgrade will install a later version of the kernel than creating a new cluster.
 - You can use the [Agent Pools - Get Upgrade Profile](/rest/api/aks/agentpools/getupgradeprofile) API to determine the latest node image version.
 - Node pool scale up uses the model associated with the virtual machine scale set at creation. OS kernels upgrade when security patches are applied and the nodes reboot.
-- Cluster auto upgrade is in preview. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
-- Node image auto upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
+- Cluster auto-upgrade is in preview. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+- Node image auto-upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
 
 ## See also
 - [AKS day-2 operations guide](day-2-operations-guide.md)
