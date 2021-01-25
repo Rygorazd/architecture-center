@@ -16,7 +16,7 @@ Data can be categorized by its state:
 
 - **Data at rest**. All information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
 
-- **Data in transit**. Data that is being transferred between components, locations, or programs.
+- **Data in transit**. Data that is being transferred between components, locations or programs.
 
 In a cloud solution, a single business transaction can lead to multiple data operations where data moves from one storage medium to another. To provide complete data protection, it must be encrypted on storage volumes and while it's transferred from one point to another.
 
@@ -31,13 +31,13 @@ In a cloud solution, a single business transaction can lead to multiple data ope
 
 ## Azure encryption features
 
-Azure provides built-in features for data encryption in many layers that participate in data processing. We recommend that for each service, enable the encryption capability. The encryption is handled automatically using Azure-managed keys. This almost requires no user interaction.
+Azure provides built-in features for data encryption in many layers that participate in data processing. We recommend that for each service the encryption capability is enabled. The encryption is handled automatically using Azure-managed keys. This almost requires no user interaction.
 
 For example, consider some built-in features of Azure Storage. 
 
 - **Identity-based access**. Supports access through Azure Active Directory (Azure AD) and key-based authentication mechanisms, such as Symmetric Shared Key Authentication, or Shared Access Signature (SAS).  
 - **Built-in encryption**. All stored data is encrypted by Azure storage. Data cannot be read by a tenant if it has not been written by that tenant. This feature provides control over cross tenant data leakage. 
-- **Region-based controls**. Data remains only in the selected region and three synchronous copies of data are maintained within that region. Azure storage provides detailed activity logging is available on an opt-in basis. 
+- **Region-based controls**. Data remains only in the selected region and three synchronous copies of data are maintained within that region. Azure storage provides detailed activity logging, which is available on an opt-in basis. 
 - **Firewall features**. The firewall provides an additional layer of access control and storage threat protection to detect anomalous access and activities. 
 
 For the complete set of features, see [Azure Storage Service encryption](/azure/storage/common/storage-service-encryption).
@@ -47,9 +47,9 @@ For the complete set of features, see [Azure Storage Service encryption](/azure/
 **Does the organization use industry standard encryption algorithms instead of creating their own?**
 ***
 
-Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher, AES-128, AES-192, and AES-256 are acceptable. 
+Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher; AES-128, AES-192, and AES-256 are acceptable. 
 
-Developers should use cryptography APIs built into operating systems instead of non-platform cryptography libraries. For .NET, follow the [.NET Cryptography Model](/dotnet/standard/security/cryptography-model).
+Developers should use cryptography API's built into operating systems instead of non-platform cryptography libraries. For .NET, follow the [.NET Cryptography Model](/dotnet/standard/security/cryptography-model).
 
 **Are modern hashing functions used?**
 ***
@@ -59,7 +59,7 @@ Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, S
 Classify and protect all information storage objects. Use encryption to make sure the contents of file cannot be accessed by unauthorized users.
 
 ### Data classification
-A crucial and an initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data. 
+A crucial and an initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements and the type of data. 
 
 Depending on the category, you can protect it through:
 - Standard encryption mechanisms.
@@ -73,7 +73,7 @@ One way of classifying data is through the use of tags.
 
 There are many options to store files in the cloud. Cloud-native apps typically use Azure Storage. Apps that run on VMs use them to store files. VMs use virtual disk files as virtual storage volumes and exist in a blob storage. 
 
-Consider a hybrid solution. Files can  move from on-premises to the cloud, from the cloud to on-premises, or between services hosted in the cloud. One strategy is to make sure that the files and their contents aren't accessible to unauthorized users. You can use authentication-based access controls to prevent unauthorized downloading of files. However, that is not enough. Have a backup mechanism to secure the virtual disk files in case authentication and authorization or its configuration is compromised. There are several approaches. You can encrypt the virtual disk files. If an attempt is made to mount disk files, the contents of the files cannot be accessed because of the encryption.
+Consider a hybrid solution. Files can  move from on-premises to the cloud, from the cloud to on-premises, or between services hosted in the cloud. One strategy is to make sure that the files and their contents aren't accessible to unauthorized users. You can use authentication-based access controls to prevent unauthorized download of the files. However, that is not enough. Have a backup mechanism to secure the virtual disk files in case the authentication and authorization or its configuration is compromised. There are several approaches. You can encrypt the virtual disk files. If an attempt is made to mount disk files, the contents of the files cannot be accessed because of the encryption.
 
 We recommend that you enable virtual disk encryption. For information about how to encrypt Windows VM disks, see [Quickstart: Create and encrypt a Windows VM with the Azure CLI](/azure/virtual-machines/windows/disk-encryption-cli-quickstart).
 
@@ -99,7 +99,7 @@ Data in transit should be encrypted at all points to ensure data integrity.
 **Does the workload communicate over encrypted network traffic only?**
 ***
 
-Any network communication between client and server where man-in-the-middle attack can occur, must be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just login forms.
+Any network communication between client and server where man-in-the-middle attack can occur, must be encrypted. All website communication should use HTTPS protocol, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just in the login forms.
 
 This mechanism can be applied to use cases such as:
 - Web applications and APIs for all communication with clients. 
